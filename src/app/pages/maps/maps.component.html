@@ -1,0 +1,45 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+        
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+        </div>
+            <form [formGroup]="RulesForm" (ngSubmit)="onSubmit()">
+              <p>
+                <label for="name">famille Name:</label>
+                <input type="text" id="name" name="famille" formControlName="famille" class="form-control">
+              </p>
+
+              <h3>Choose Your Type</h3>
+              <select  (change)="update($event)">
+              <option value="default">string</option>
+              <option *ngFor="let type of Types" [value]="type" >
+               {{type}}
+    </option>
+</select>
+<div *ngIf="selected === 'array'">
+  <br>
+  <label>saisir les element du array avec un virgule apres chaque element </label><br>
+  <input type="text" id="values" name="values" placeholder="virgule apres chaque element">
+  
+</div>
+
+<br>  <br>
+              <button type="submit" (click)="AddAction()" class="btn btn-success">Submit</button>
+            </form>
+            <br/>
+            {{this.RulesForm.value | json}}
+          </div> 
+      </div>
+  </div>
+</div>
