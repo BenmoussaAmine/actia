@@ -25,7 +25,7 @@ app.use('/', require('./Controllers/navigationController'))
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use('/api/users', require('./Controllers/usersController'))
 app.use('/api/file', require('./Controllers/fileController'))
-
+      
 
 pool.connect().then(client => {
     console.log("client connected")
